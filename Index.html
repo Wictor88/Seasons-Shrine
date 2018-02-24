@@ -2,24 +2,506 @@
 <html>
     <head>
         <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+        <script>
+            AFRAME.registerComponent( 'change-color-on-hover', {
+                init: function () {
+                    var el = this.el;
+                    var defaultColor = el.getAttribute('material').emissive;
+                    
+                    el.addEventListener('mouseenter', function (){
+                        el.setAttribute('material', 'emissive', 'red');
+                    });
+                    
+                    el.addEventListener('mouseleave', function () {
+                        el.setAttribute('material', 'emissive', defaultColor);
+                    });
+                }
+            } );
+            
+            AFRAME.registerComponent ('checkpoint-hovered', {
+               init: function() {
+                   var el = this.el;
+                   var defaultColor = el.getAttribute('material').color;
+                   
+                   el.addEventListener('mouseenter', function() {
+                      el.setAttribute('material', 'color', '#0077b7') 
+                   });
+                   
+                   el.addEventListener('mouseleave', function () {
+                        el.setAttribute('material', 'color', defaultColor);
+                    });
+               } 
+            });
+            AFRAME.registerComponent('show-autumn',  {
+               init: function() {
+                   var el = this.el;
+                   var treeAut = document.getElementById("autumnTree");
+                   var treeSpr = document.getElementById("springTree");
+                   var treeSum = document.getElementById("summerTree");
+                   var treeWin = document.getElementById("winterTree");
+                   
+                   var ambLight= document.getElementById("ambientLight");
+                   var treeSpotLight = document.getElementById("TreeSpotlight");
+                   var doorLight = document.getElementById("EntranceLight");
+                   var bgCryLight = document.getElementById("bigCrystalLight");
+                   var treeLight = document.getElementById("treeLight");
+                   var colLight = document.getElementById("columnsLight");
+                   var yrdLight = document.getElementById("yardLight");
+                   
+                   var bigCry = document.getElementById("bigCrystal");
+                   
+                   var sky = document.getElementById('skyBox');
+                   
+                   var autLights = document.getElementById("autumnLights");
+                   var sprLights = document.getElementById("springLights");
+                   var sumLights = document.getElementById("summerLights");
+                   var winLights = document.getElementById("winterLights");
+                   
+                   el.addEventListener( 'mousedown', function() {
+                       treeAut.setAttribute('visible', true);
+                       treeSpr.setAttribute('visible', false);
+                       treeSum.setAttribute('visible', false);
+                       treeWin.setAttribute('visible', false);
+                       
+                       ambLight.setAttribute('light', 'color', '#FEE1CF');
+                       treeSpotLight.setAttribute('light', 'color', '#FFE1A8');
+                       doorLight.setAttribute('light', 'color', '#FEE1CF');
+                       bgCryLight.setAttribute('light', 'color', '#FFE1A8');
+                       treeLight.setAttribute('light', 'color', '#FFE1A8');
+                       colLight.setAttribute('light', 'color', '#FEE1CF');
+                       yrdLight.setAttribute('light', 'color', '#FFE1A8');
+                       
+                       bigCry.setAttribute('material', 'color', '#E26D5C');
+                       bigCry.setAttribute('material', 'emissive', '#E26D5C');
+                       
+                       sky.setAttribute('color', '#BAD6DF');
+                       
+                       autLights.setAttribute('visible', true);
+                       sprLights.setAttribute('visible', false);
+                       sumLights.setAttribute('visible', false);
+                       winLights.setAttribute('visible', false);
+                   });
+               } 
+            });
+            
+            AFRAME.registerComponent('show-spring',  {
+               init: function() {
+                   var el = this.el;
+                   var treeAut = document.getElementById("autumnTree");
+                   var treeSpr = document.getElementById("springTree");
+                   var treeSum = document.getElementById("summerTree");
+                   var treeWin = document.getElementById("winterTree");
+                   
+                   var ambLight = document.getElementById("ambientLight");
+                   var treeSpotLight = document.getElementById("TreeSpotlight");
+                   var doorLight = document.getElementById("EntranceLight");
+                   var bgCryLight = document.getElementById("bigCrystalLight");
+                   var treeLight = document.getElementById("treeLight");
+                   var colLight = document.getElementById("columnsLight");
+                   var yrdLight = document.getElementById("yardLight");
+                   
+                   var bigCry = document.getElementById("bigCrystal");
+                   var sky = document.getElementById('skyBox');
+                   
+                   var autLights = document.getElementById("autumnLights");
+                   var sprLights = document.getElementById("springLights");
+                   var sumLights = document.getElementById("summerLights");
+                   var winLights = document.getElementById("winterLights");
+                   
+                   el.addEventListener( 'mousedown', function() {
+                       treeAut.setAttribute('visible', false);
+                       treeSpr.setAttribute('visible', true);
+                       treeSum.setAttribute('visible', false);
+                       treeWin.setAttribute('visible', false);
+                       
+                       ambLight.setAttribute('light', 'color', '#FAC0CC');
+                       treeSpotLight.setAttribute('light', 'color', '#FAC0CC');
+                       doorLight.setAttribute('light', 'color', '#FAC0CC');
+                       bgCryLight.setAttribute('light', 'color', '#F79385');
+                       treeLight.setAttribute('light', 'color', '#F79385');
+                       colLight.setAttribute('light', 'color', '#FAC0CC');
+                       yrdLight.setAttribute('light', 'color', '#F79385');
+                       
+                       bigCry.setAttribute('material', 'color', '#F79385');
+                       bigCry.setAttribute('material', 'emissive', '#F79385');
+                       
+                       sky.setAttribute('color', '#FAC0CC');
+                       
+                       autLights.setAttribute('visible', false);
+                       sprLights.setAttribute('visible', true);
+                       sumLights.setAttribute('visible', false);
+                       winLights.setAttribute('visible', false);
+                   });
+               } 
+            });
+            AFRAME.registerComponent('show-summer',  {
+               init: function() {
+                   var el = this.el;
+                   var treeAut = document.getElementById("autumnTree");
+                   var treeSpr = document.getElementById("springTree");
+                   var treeSum = document.getElementById("summerTree");
+                   var treeWin = document.getElementById("winterTree");
+                   
+                   var ambLight = document.getElementById("ambientLight");
+                   var treeSpotLight = document.getElementById("TreeSpotlight");
+                   var doorLight = document.getElementById("EntranceLight");
+                   var bgCryLight = document.getElementById("bigCrystalLight");
+                   var treeLight = document.getElementById("treeLight");
+                   var colLight = document.getElementById("columnsLight");
+                   var yrdLight = document.getElementById("yardLight");
+                   
+                   var bigCry = document.getElementById("bigCrystal");
+                   var sky = document.getElementById('skyBox');
+                   
+                   var autLights = document.getElementById("autumnLights");
+                   var sprLights = document.getElementById("springLights");
+                   var sumLights = document.getElementById("summerLights");
+                   var winLights = document.getElementById("winterLights");
+                   
+                   el.addEventListener( 'mousedown', function() {
+                       treeAut.setAttribute('visible', false);
+                       treeSpr.setAttribute('visible', false);
+                       treeSum.setAttribute('visible', true);
+                       treeWin.setAttribute('visible', false);
+                       
+                       ambLight.setAttribute('light', 'color', '#4DADE9');
+                       treeSpotLight.setAttribute('light', 'color', '#4DADE9');
+                       doorLight.setAttribute('light', 'color', '#4DADE9');
+                       colLight.setAttribute('light', 'color', '#4DADE9');
+                       bgCryLight.setAttribute('light', 'color', '#F7E37D');
+                       treeLight.setAttribute('light', 'color', '#F7E37D');
+                       yrdLight.setAttribute('light', 'color', '#F7E37D');
+                       
+                       bigCry.setAttribute('material', 'color', '#F7E37D');
+                       bigCry.setAttribute('material', 'emissive', '#F7E37D');
+                       
+                       sky.setAttribute('color', '#4DADE9');
+                       
+                       autLights.setAttribute('visible', false);
+                       sprLights.setAttribute('visible', false);
+                       sumLights.setAttribute('visible', true);
+                       winLights.setAttribute('visible', false);
+                   });
+               } 
+            });
+            AFRAME.registerComponent('show-winter',  {
+               init: function() {
+                   var el = this.el;
+                   var treeAut = document.getElementById("autumnTree");
+                   var treeSpr = document.getElementById("springTree");
+                   var treeSum = document.getElementById("summerTree");
+                   var treeWin = document.getElementById("winterTree");
+                   
+                   var ambLight = document.getElementById("ambientLight");
+                   var ambLight = document.getElementById("ambientLight");
+                   var treeSpotLight = document.getElementById("TreeSpotlight");
+                   var doorLight = document.getElementById("EntranceLight");
+                   var bgCryLight = document.getElementById("bigCrystalLight");
+                   var treeLight = document.getElementById("treeLight");
+                   var colLight = document.getElementById("columnsLight");
+                   var yrdLight = document.getElementById("yardLight");
+                   
+                   var bigCry = document.getElementById("bigCrystal");
+                   
+                   var sky = document.getElementById('skyBox');
+                   
+                   var autLights = document.getElementById("autumnLights");
+                   var sprLights = document.getElementById("springLights");
+                   var sumLights = document.getElementById("summerLights");
+                   var winLights = document.getElementById("winterLights");
+                   
+                   el.addEventListener( 'mousedown', function() {
+                       treeAut.setAttribute('visible', false);
+                       treeSpr.setAttribute('visible', false);
+                       treeSum.setAttribute('visible', false);
+                       treeWin.setAttribute('visible', true);
+                       
+                       ambLight.setAttribute('light', 'color', '#DAFFEF');
+                       treeSpotLight.setAttribute('light', 'color', '#DAFFEF');
+                       doorLight.setAttribute('light', 'color', '#DAFFEF');
+                       colLight.setAttribute('light', 'color', '#DAFFEF');
+                       bgCryLight.setAttribute('light', 'color', '#C0FDFB');
+                       treeLight.setAttribute('light', 'color', '#C0FDFB');
+                       yrdLight.setAttribute('light', 'color', '#C0FDFB');
+                       
+                       bigCry.setAttribute('material', 'color', '#C0FDFB');
+                       bigCry.setAttribute('material', 'emissive', '#C0FDFB');
+                       
+                       sky.setAttribute('color', '#DAFFEF');
+                       
+                       autLights.setAttribute('visible', false);
+                       sprLights.setAttribute('visible', false);
+                       sumLights.setAttribute('visible', false);
+                       winLights.setAttribute('visible', true);
+                   });
+               } 
+            });
+        </script>
     </head>
     
     <body>
-        <a-scene>
+        <a-scene escena>
             <a-assets>
-                <a-asset-item id="santuario" src="Models/Santuario.gltf"></a-asset-item>
+                <a-asset-item id="shrine" src="Models/Santuario.gltf"></a-asset-item>
+                
+                <a-asset-item id="treeAutumn" src="Models/TreeAutumn.gltf"></a-asset-item>
+                <a-asset-item id="treeSpring" src="Models/TreeSpring.gltf"></a-asset-item>
+                <a-asset-item id="treeSummer" src="Models/TreeSummer.gltf"></a-asset-item>
+                <a-asset-item id="treeWinter" src="Models/TreeWinter.gltf"></a-asset-item>
+                                
+                <a-asset-item id="lightAutumn" src="Models/LightAutumn.gltf"></a-asset-item>
+                <a-asset-item id="lightSpring" src="Models/LightSpring.gltf"></a-asset-item>
+                <a-asset-item id="lightSummer" src="Models/LightSummer.gltf"></a-asset-item>
+                <a-asset-item id="lightWinter" src="Models/LightWinter.gltf"></a-asset-item>
+                
+                <a-mixin id="checkpoint"></a-mixin>
+                <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
             </a-assets>
+            <a-sky id="skyBox"color="#4DADE9"></a-sky>
             
-            <!--Cámara principal -->
-            <a-entity position="20 1.6 -12" camera="active:true;userHeight:1.6" wasd-controls="" rotation="0 90 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="" data-aframe-inspector="default-camera" id="MainCamera"></a-entity>
+            <!-- Shrine -->            
+            <a-gltf-model src="#shrine" shadow="receive:true;cast:true"></a-gltf-model>
             
-            <!--Spotlight del vano del árbol --> 
-            <a-entity light="intensity:0.87;penumbra:0.43;angle:36.99;type:spot;color:#BBB" data-aframe-default-light="" aframe-injected="" position="-13.19 7.802 10.222" rotation="-90.01166961505233 0 0" id="TreeSpotlight"></a-entity>
+            <!-- Main Camera -->
+            <a-entity id="MainCamera"
+                      position="20 0 -12" 
+                      camera="active:true;userHeight:1.8" 
+                      universal-controls="movementControls:checkpoint"
+                      checkpoint-controls="mode:animate"
+                      wasd-controls="" 
+                      rotation="0 90 0" 
+                      look-controls="" 
+                      aframe-injected="" 
+                      data-aframe-inspector-original-camera="" 
+                      data-aframe-inspector="default-camera" 
+                      velocity="0 0 0">
+                <a-cursor color="cyan">
+                </a-cursor>
+            </a-entity>
             
-            <a-entity position="15.145 1.732 -12.057" light="distance:15;intensity:0.76;color:#ffd071;type:point" id="EntranceLight"></a-entity>
+            <!-- Lights --> 
+            <a-entity id="TreeSpotlight"
+                      light="intensity:0.87;penumbra:0.43;angle:36.99;type:spot;color:#4DADE9" 
+                      data-aframe-default-light="" 
+                      aframe-injected="" position="-13.19 7.802 10.222" 
+                      rotation="-90.01166961505233 0 0">
+            </a-entity>
             
-            <a-gltf-model src="#santuario"></a-gltf-model>
-        </a-scene>
-        
+            <a-entity id="EntranceLight"
+                      position="15.145 1.732 -12.057" 
+                      light="distance:15;intensity:0.76;color:#4DADE9;type:point;castShadow:true">
+            </a-entity>
+            
+            <a-entity id="ambientLight"
+                      light="color: #4DADE9; intensity: 0.53; type: ambient">
+            </a-entity>
+            
+            <a-entity id="bigCrystalLight"
+                      position="1.5 1.5 10"
+                      light="intensity: 5; distance: 10; type: point; color: #F7E37D">
+            </a-entity>
+            <a-entity id="treeLight"
+                      position="-15 1.5 12.5"
+                      light="intensity:3;type:point;distance:15;color:#F7E37D">
+            </a-entity>
+            <a-entity id="columnsLight"
+                      position="-13 4.5 -18.5"
+                      light="intensity: 6; distance: 10; type: point; color: #F7E37D">
+            </a-entity>
+            <a-entity id="yardLight"
+                      position="-1.5 1.5 -0.5"
+                      light="intensity: 1.5; distance: 7.5; type: point; color: #F7E37D"></a-entity>
+            <!-- Checkpoints -->
+            <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="true">
+                <a-cylinder id="cp01" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="13 0 -12" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp02" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="0.5 0 -12" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp03" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="-17 0 -12" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp04" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="-17 0 -6" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp05" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="-13 0 -5.5" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp06" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="13 0 -12" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp07" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="13.5 0 4.5" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp08" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="-13.5 0 4.6" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp09" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="-4.5 0 10" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp10" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="8.7 0 6.5" checkpoint-hovered></a-cylinder>
+                <a-cylinder id="cp11" color="#48BEFF" checkpoint="offset:0 1.8 0" radius="0.5" height="0.1" position="6 0 -0.5" checkpoint-hovered></a-cylinder>
+            </a-entity>   
+            
+            <!-- MODELS -->
+            <!-- Light crystals-->
+            <a-entity id="bigCrystal"
+                      geometry="primitive:dodecahedron"
+                      scale="1.5 1.5 1.5"
+                      position="1.5 1.5 10"
+                      material="shader:flat;color:#FFE1A8;emissive:#F7E37D">
+            <a-animation attribute="rotation"
+                         dur="15000"
+                         fill="forwards"
+                         to="180 180 180"
+                         repeat="indefinite"></a-animation>
+            </a-entity>
+            <a-entity id="autumnLights" position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="true">
+                <a-gltf-model id="lightAut01" src="#lightAutumn" position="-19.5 2.5 5.5" ></a-gltf-model>
+                <a-gltf-model id="lightAut02" src="#lightAutumn" position="-19.5 2.5 8" ></a-gltf-model>
+                <a-gltf-model id="lightAut03" src="#lightAutumn" position="-19.3 2.5 11.8" ></a-gltf-model>
+                <a-gltf-model id="lightAut04" src="#lightAutumn" position="-17.5 2.5 14.5" ></a-gltf-model>
+                <a-gltf-model id="lightAut05" src="#lightAutumn" position="-14.8 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightAut06" src="#lightAutumn" position="-11.5 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightAut07" src="#lightAutumn" position="-9 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightAut08" src="#lightAutumn" position="-4 2.5 -0.5" ></a-gltf-model>
+                <a-gltf-model id="lightAut09" src="#lightAutumn" position="-3.35 2.5 2" ></a-gltf-model>
+                <a-gltf-model id="lightAut10" src="#lightAutumn" position="-3.35 2.5 -3" ></a-gltf-model>
+                <a-gltf-model id="lightAut11" src="#lightAutumn" position="-2 2.5 -3.8" ></a-gltf-model>
+                <a-gltf-model id="lightAut12" src="#lightAutumn" position="-2 2.5 2.8" ></a-gltf-model>
+            </a-entity>
+            
+            <a-entity id="springLights" position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="false">
+                <a-gltf-model id="lightSpr01" src="#lightSpring" position="-19.5 2.5 5.5" ></a-gltf-model>
+                <a-gltf-model id="lightSpr02" src="#lightSpring" position="-19.5 2.5 8" ></a-gltf-model>
+                <a-gltf-model id="lightSpr03" src="#lightSpring" position="-19.3 2.5 11.8" ></a-gltf-model>
+                <a-gltf-model id="lightSpr04" src="#lightSpring" position="-17.5 2.5 14.5" ></a-gltf-model>
+                <a-gltf-model id="lightSpr05" src="#lightSpring" position="-14.8 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightSpr06" src="#lightSpring" position="-11.5 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightSpr07" src="#lightSpring" position="-9 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightSpr08" src="#lightSpring" position="-4 2.5 -0.5" ></a-gltf-model>
+                <a-gltf-model id="lightSpr09" src="#lightSpring" position="-3.35 2.5 2" ></a-gltf-model>
+                <a-gltf-model id="lightSpr10" src="#lightSpring" position="-3.35 2.5 -3" ></a-gltf-model>
+                <a-gltf-model id="lightSpr11" src="#lightSpring" position="-2 2.5 -3.8" ></a-gltf-model>
+                <a-gltf-model id="lightSpr12" src="#lightSpring" position="-2 2.5 2.8" ></a-gltf-model>
+            </a-entity>
+            
+            <a-entity id="summerLights" position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="false">
+                <a-gltf-model id="lightSum01" src="#lightSummer" position="-19.5 2.5 5.5" ></a-gltf-model>
+                <a-gltf-model id="lightSum02" src="#lightSummer" position="-19.5 2.5 8" ></a-gltf-model>
+                <a-gltf-model id="lightSum03" src="#lightSummer" position="-19.3 2.5 11.8" ></a-gltf-model>
+                <a-gltf-model id="lightSum04" src="#lightSummer" position="-17.5 2.5 14.5" ></a-gltf-model>
+                <a-gltf-model id="lightSum05" src="#lightSummer" position="-14.8 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightSum06" src="#lightSummer" position="-11.5 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightSum07" src="#lightSummer" position="-9 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightSum08" src="#lightSummer" position="-4 2.5 -0.5" ></a-gltf-model>
+                <a-gltf-model id="lightSum09" src="#lightSummer" position="-3.35 2.5 2" ></a-gltf-model>
+                <a-gltf-model id="lightSum10" src="#lightSummer" position="-3.35 2.5 -3" ></a-gltf-model>
+                <a-gltf-model id="lightSum11" src="#lightSummer" position="-2 2.5 -3.8" ></a-gltf-model>
+                <a-gltf-model id="lightSum12" src="#lightSummer" position="-2 2.5 2.8" ></a-gltf-model>
+            </a-entity>
+            
+            <a-entity id="winterLights" position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="false">
+                <a-gltf-model id="lightWin01" src="#lightWinter" position="-19.5 2.5 5.5" ></a-gltf-model>
+                <a-gltf-model id="lightWin02" src="#lightWinter" position="-19.5 2.5 8" ></a-gltf-model>
+                <a-gltf-model id="lightWin03" src="#lightWinter" position="-19.3 2.5 11.8" ></a-gltf-model>
+                <a-gltf-model id="lightWin04" src="#lightWinter" position="-17.5 2.5 14.5" ></a-gltf-model>
+                <a-gltf-model id="lightWin05" src="#lightWinter" position="-14.8 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightWin06" src="#lightWinter" position="-11.5 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightWin07" src="#lightWinter" position="-9 2.5 16" ></a-gltf-model>
+                <a-gltf-model id="lightWin08" src="#lightWinter" position="-4 2.5 -0.5" ></a-gltf-model>
+                <a-gltf-model id="lightWin09" src="#lightWinter" position="-3.35 2.5 2" ></a-gltf-model>
+                <a-gltf-model id="lightWin10" src="#lightWinter" position="-3.35 2.5 -3" ></a-gltf-model>
+                <a-gltf-model id="lightWin11" src="#lightWinter" position="-2 2.5 -3.8" ></a-gltf-model>
+                <a-gltf-model id="lightWin12" src="#lightWinter" position="-2 2.5 2.8" ></a-gltf-model>
+            </a-entity>
+            
+            <!-- Crystals -->
+            <a-entity id="triggerAutumn" geometry="primitive:octahedron" scale="0.5 0.5 0.5" position="-19 1.5 1" shadow="cast:false" 
+                      material="shader:standard;color:#F77F54;emissive:#F77F54"
+                      show-autumn
+                      change-color-on-hover>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 360 0"
+                         repeat="indefinite"></a-animation>
+            </a-entity>
+            <a-box id="boxAutumn" scale="1.2 0.8 1.2" position="-19 0.4 1" color="#5D737E"></a-box>
+            
+            <a-entity id="triggerSpring" geometry="primitive:octahedron" scale="0.5 0.5 0.5" position="-8 1.5 1" shadow="cast:false"
+                      material="shader:standard;color:#F79385;emissive:#F79385"
+                      show-spring 
+                      change-color-on-hover>
+                <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 360 0"
+                         repeat="indefinite"></a-animation>
+            </a-entity>
+            <a-box id="boxSpring" scale="1.2 0.8 1.2" position="-8 0.4 1" color="#5D737E"></a-box>
+            
+            <a-entity id="triggerSummer"  geometry="primitive:octahedron" scale="0.5 0.5 0.5" position="-19 1.5 -1" shadow="cast:false"
+                      material="shader:standard;color:#A8C362;emissive:#A8C362"
+                      show-summer
+                      change-color-on-hover>
+                <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 360 0"
+                         repeat="indefinite"></a-animation>
+            </a-entity>
+            <a-box id="boxSummer" scale="1.2 0.8 1.2" position="-19 0.4 -1" color="#5D737E"></a-box>
+            
+            <a-entity id="triggerWinter"  geometry="primitive:octahedron" scale="0.5 0.5 0.5" position="-8 1.5 -2" shadow="cast:false"
+                      material="shader:standard;color:#C0FDFB;emissive:#C0FDFB"
+                      show-winter 
+                      change-color-on-hover>
+                <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 360 0"
+                         repeat="indefinite"></a-animation>
+            </a-entity>            
+            <a-box id="boxWinter" scale="1.2 0.8 1.2" position="-8 0.4 -2" color="#5D737E"></a-box>
+
+            <!-- Yard Crystals-->
+            <a-entity id="triggerAutumn01" geometry="primitive:octahedron" scale="0.5 0.5 0.5" position="14 1.5 3" shadow="cast:false" show-autumn
+                      material="shader:standard;color:#F77F54;emissive:#F77F54"
+                      show-autumn
+                      change-color-on-hover>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 360 0"
+                         repeat="indefinite"></a-animation>
+            </a-entity>            
+            <a-box id="boxAutumn" scale="1.2 0.8 1.2" position="14 0.4 3" color="#64B6AC"></a-box>
+            
+            <a-entity id="triggerSpring01" geometry="primitive:octahedron" scale="0.5 0.5 0.5" position="14 1.5 1.5" shadow="cast:false"
+                      material="shader:standard;color:#F79385;emissive:#F79385"
+                      show-spring 
+                      change-color-on-hover>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 360 0"
+                         repeat="indefinite"></a-animation>
+            </a-entity>            
+            <a-box id="boxSpring" scale="1.2 0.8 1.2" position="14 0.4 1.5" color="#64B6AC"></a-box>
+            
+            <a-entity id="triggerSummer01"  geometry="primitive:octahedron" scale="0.5 0.5 0.5" position="14 1.5 -2.5" shadow="cast:false"
+                      material="shader:standard;color:#A8C362;emissive:#A8C362"
+                      show-summer
+                      change-color-on-hover>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 -360 0"
+                         repeat="indefinite"></a-animation>
+            </a-entity>            
+            <a-box id="boxSummer" scale="1.2 0.8 1.2" position="14 0.4 -2.5" color="#64B6AC"></a-box>
+            
+            <a-entity id="triggerWinter01"  geometry="primitive:octahedron" scale="0.5 0.5 0.5" position="14 1.5 -4" shadow="cast:false"
+                      material="shader:standard;color:#C0FDFB;emissive:#C0FDFB"
+                      show-winter 
+                      change-color-on-hover>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 -360 0"
+                         repeat="indefinite"></a-animation>
+            </a-entity>
+            <a-box id="boxWinter" scale="1.2 0.8 1.2" position="14 0.4 -4" color="#64B6AC"></a-box>
+            <!-- Trees-->  
+            <a-gltf-model id="autumnTree" src="#treeAutumn" position="-13.5 0.1 10" rotation="0 90 0" visible="false"></a-gltf-model>
+            <a-gltf-model id="springTree" src="#treeSpring" position="-13.5 0.1 10" rotation="0 90 0" visible="false"></a-gltf-model>
+            <a-gltf-model id="summerTree" src="#treeSummer" position="-13.5 0.1 10" rotation="0 90 0" visible="true" ></a-gltf-model>
+            <a-gltf-model id="winterTree" src="#treeWinter" position="-13.5 0.1 10" rotation="0 90 0" visible="false"></a-gltf-model>
+        </a-scene>        
     </body>
 </html>
