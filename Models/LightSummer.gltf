@@ -1,0 +1,183 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0, 
+            "componentType" : 5123, 
+            "count" : 636, 
+            "max" : [
+                307
+            ], 
+            "min" : [
+                0
+            ], 
+            "type" : "SCALAR"
+        }, 
+        {
+            "bufferView" : 1, 
+            "componentType" : 5126, 
+            "count" : 308, 
+            "max" : [
+                0.2730793356895447, 
+                0.13459205627441406, 
+                0.2680265009403229
+            ], 
+            "min" : [
+                -0.27334731817245483, 
+                -0.1264343559741974, 
+                -0.2682986259460449
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 2, 
+            "componentType" : 5126, 
+            "count" : 308, 
+            "max" : [
+                0.982207715511322, 
+                0.9929807186126709, 
+                0.965544581413269
+            ], 
+            "min" : [
+                -0.9754325747489929, 
+                -0.9507431387901306, 
+                -0.9854426980018616
+            ], 
+            "type" : "VEC3"
+        }
+    ], 
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter", 
+        "version" : "2.0"
+    }, 
+    "bufferViews" : [
+        {
+            "buffer" : 0, 
+            "byteLength" : 1272, 
+            "byteOffset" : 0, 
+            "target" : 34963
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 3696, 
+            "byteOffset" : 1272, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 3696, 
+            "byteOffset" : 4968, 
+            "target" : 34962
+        }
+    ], 
+    "buffers" : [
+        {
+            "byteLength" : 8664, 
+            "uri" : "LightSummer.bin"
+        }
+    ], 
+    "materials" : [
+        {
+            "emissiveFactor" : [
+                0.38999998569488525, 
+                0.2936475419577249, 
+                0.15271325981751716
+            ], 
+            "name" : "Autumn ", 
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.895652174949646, 
+                    0.6743745365898945, 
+                    0.3507127392722964, 
+                    1.0
+                ], 
+                "metallicFactor" : 0.0
+            }
+        }, 
+        {
+            "emissiveFactor" : [
+                0.3813454785462227, 
+                0.11962597236000061, 
+                0.09616576155584822
+            ], 
+            "name" : "Spring ", 
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.8249679483476484, 
+                    0.2587878932330394, 
+                    0.20803621774789516, 
+                    1.0
+                ], 
+                "metallicFactor" : 0.0
+            }
+        }, 
+        {
+            "emissiveFactor" : [
+                0.3813454785462227, 
+                0.31494195007747017, 
+                0.08408228711457699
+            ], 
+            "name" : "Summer ", 
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.8087921431824725, 
+                    0.6679575060186522, 
+                    0.17832935494170243, 
+                    1.0
+                ], 
+                "metallicFactor" : 0.0
+            }
+        }, 
+        {
+            "emissiveFactor" : [
+                0.21084607774936615, 
+                0.3929003004491136, 
+                0.3858744391277753
+            ], 
+            "name" : "Winter ", 
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.4491938505984052, 
+                    0.8370485272664183, 
+                    0.8220803868372002, 
+                    1.0
+                ], 
+                "metallicFactor" : 0.0
+            }
+        }
+    ], 
+    "meshes" : [
+        {
+            "name" : "LowPolyRock", 
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2, 
+                        "POSITION" : 1
+                    }, 
+                    "indices" : 0, 
+                    "material" : 2
+                }
+            ]
+        }
+    ], 
+    "nodes" : [
+        {
+            "mesh" : 0, 
+            "name" : "LowPolyRock", 
+            "scale" : [
+                0.5379070043563843, 
+                1.0148909091949463, 
+                0.5379070043563843
+            ]
+        }
+    ], 
+    "scene" : 0, 
+    "scenes" : [
+        {
+            "name" : "Scene", 
+            "nodes" : [
+                0
+            ]
+        }
+    ]
+}
